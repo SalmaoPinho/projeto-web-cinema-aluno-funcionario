@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venda de Ingressos - CineManager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylescin.css">
+    <style>
+        .comprovante-section {
+            display: none;
+            margin-top: 2rem;
+        }
+        .price-display {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--frutiger-green);
+        }
+        .info-sessao {
+            display: none;
+            margin-bottom: 1rem;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .comprovante-section {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar Corrigido -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container bg-primary">
+        <a class="navbar-brand nav-logo" href="index.html">
+            <i class="bi bi-camera-reels me-2"></i>123 Filmes
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-house me-1"></i>Início
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle bg-transparent border-0" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-gear me-1"></i>Cadastros
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="cadastro-filmes.html">
+                            <i class="bi bi-film me-2"></i>Cadastro de Filmes
+                        </a></li>
+                        <li><a class="dropdown-item" href="cadastro-salas.html">
+                            <i class="bi bi-building me-2"></i>Cadastro de Salas
+                        </a></li>
+                        <li><a class="dropdown-item" href="cadastro-sessoes.html">
+                            <i class="bi bi-calendar-event me-2"></i>Cadastro de Sessões
+                        </a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="venda-ingressos.html">
+                        <i class="bi bi-ticket-perforated me-1"></i>Venda de Ingressos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="sessoes-disponiveis.html">
+                        <i class="bi bi-list-check me-1"></i>Sessões Disponíveis
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="fw-bold display-5">
+                        <i class="bi bi-ticket-perforated me-3"></i>Venda de Ingressos
+                    </h1>
+                    <p class="lead mb-0">Realize a venda de ingressos para as sessões disponíveis</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="index.html" class="btn btn-light">
+                        <i class="bi bi-arrow-left me-2"></i>Voltar ao Início
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card form-card no-print">
+                        <div class="card-header bg-white py-4">
+                            <h3 class="card-title mb-0 text-center">
+                                <i class="bi bi-cart-plus me-2" style="color: var(--frutiger-cyan);"></i>
+                                Nova Venda
+                            </h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="formVenda">
+                                <!-- Sessão -->
+                                <div class="mb-4">
+                                    <label for="sessao" class="form-label">
+                                        <i class="bi bi-calendar-event me-2" style="color: var(--frutiger-blue);"></i>
+                                        Sessão
+                                    </label>
+                                    <select class="form-select" id="sessao" required>
+                                        <option value="">Selecione uma sessão</option>
+                                    </select>
+                                    <div class="form-text">Sessões disponíveis para venda</div>
+                                </div>
+
+                                <!-- Informações da Sessão Selecionada -->
+                                <div class="info-sessao" id="infoSessao">
+                                    <!-- Será preenchido dinamicamente -->
+                                </div>
+
+                                <!-- Preço -->
+                                <div class="mb-4" style="display: none;">
+                                    <label class="form-label">
+                                        <i class="bi bi-currency-dollar me-2" style="color: var(--frutiger-green);"></i>
+                                        Preço do Ingresso
+                                    </label>
+                                    <div class="price-display" id="precoIngresso">R$ 0,00</div>
+                                </div>
+
+                                <div class="row">
+                                    <!-- Nome do Cliente -->
+                                    <div class="col-md-6 mb-4">
+                                        <label for="nomeCliente" class="form-label">
+                                            <i class="bi bi-person me-2" style="color: var(--frutiger-orange);"></i>
+                                            Nome do Cliente
+                                        </label>
+                                        <input type="text" class="form-control" id="nomeCliente" 
+                                               placeholder="Digite o nome completo" required>
+                                    </div>
+
+                                    <!-- CPF -->
+                                    <div class="col-md-6 mb-4">
+                                        <label for="cpfCliente" class="form-label">
+                                            <i class="bi bi-person-badge me-2" style="color: var(--frutiger-lime);"></i>
+                                            CPF
+                                        </label>
+                                        <input type="text" class="form-control" id="cpfCliente" 
+                                               placeholder="000.000.000-00" maxlength="14" required>
+                                        <div class="form-text">Digite apenas números</div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <img src="css/assentos.png" class="img-thumbnail rounded" alt="...">
+                                </div>
+                                <div class="row">
+                                    <!-- Assento -->
+                                    <div class="col-md-6 mb-4">
+                                        <label for="assento" class="form-label">
+                                            <i class="bi bi-geo-alt me-2" style="color: var(--frutiger-cyan);"></i>
+                                            Assento
+                                        </label>
+                                        <input type="text" class="form-control" id="assento" 
+                                               placeholder="Ex: A10, B5, C12" required>
+                                        <div class="form-text">Formato: Letra + Número (ex: A10)</div>
+                                    </div>
+
+                                    <!-- Tipo de Pagamento -->
+                                    <div class="col-md-6 mb-4">
+                                        <label for="tipoPagamento" class="form-label">
+                                            <i class="bi bi-credit-card me-2" style="color: var(--frutiger-blue);"></i>
+                                            Tipo de Pagamento
+                                        </label>
+                                        <select class="form-select" id="tipoPagamento" required>
+                                            <option value="">Selecione o pagamento</option>
+                                            <option value="cartao">Cartão</option>
+                                            <option value="pix">Pix</option>
+                                            <option value="dinheiro">Dinheiro</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Botões -->
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                    <button type="button" class="btn btn-secondary me-md-2" onclick="limparFormularioVenda()">
+                                        <i class="bi bi-x-circle me-2"></i>Limpar
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="bi bi-check-circle me-2"></i>Confirmar Venda
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Comprovante de Venda -->
+                    <div class="comprovante-section" id="comprovanteVenda">
+                        <!-- Será preenchido dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scriptcine.js"></script>
+    <script src="js/venda-ingressos.js"></script>
+</body>
+</html>

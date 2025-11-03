@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Salas - CineManager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylescin.css">
+</head>
+<body>
+<!-- Navbar Corrigido -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container bg-primary">
+        <a class="navbar-brand nav-logo" href="index.html">
+            <i class="bi bi-camera-reels me-2"></i>123 Filmes
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-house me-1"></i>Início
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle bg-transparent active border-0" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-gear me-1"></i>Cadastros
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="cadastro-filmes.html">
+                            <i class="bi bi-film me-2"></i>Cadastro de Filmes
+                        </a></li>
+                        <li><a class="dropdown-item" href="cadastro-salas.html">
+                            <i class="bi bi-building me-2"></i>Cadastro de Salas
+                        </a></li>
+                        <li><a class="dropdown-item" href="cadastro-sessoes.html">
+                            <i class="bi bi-calendar-event me-2"></i>Cadastro de Sessões
+                        </a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="venda-ingressos.html">
+                        <i class="bi bi-ticket-perforated me-1"></i>Venda de Ingressos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sessoes-disponiveis.html">
+                        <i class="bi bi-list-check me-1"></i>Sessões Disponíveis
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="fw-bold display-5">
+                        <i class="bi bi-building me-3"></i>Cadastro de Salas
+                    </h1>
+                    <p class="lead mb-0">Configure as salas de exibição do seu cinema</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="index.html" class="btn btn-light">
+                        <i class="bi bi-arrow-left me-2"></i>Voltar ao Início
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card form-card">
+                        <div class="card-header bg-white py-4">
+                            <h3 class="card-title mb-0 text-center">
+                                <i class="bi bi-plus-circle me-2" style="color: var(--frutiger-cyan);"></i>
+                                Nova Sala
+                            </h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="formSala">
+                                <!-- Nome da Sala -->
+                                <div class="mb-4">
+                                    <label for="nomeSala" class="form-label">
+                                        <i class="bi bi-building me-2" style="color: var(--frutiger-blue);"></i>
+                                        Nome da Sala
+                                    </label>
+                                    <input type="text" class="form-control form-control-lg" id="nomeSala" 
+                                           placeholder="Ex: Sala 1, Sala IMAX, Sala VIP" required>
+                                    <div class="form-text">Nome identificador da sala</div>
+                                </div>
+
+                                <div class="row">
+                                    <!-- Capacidade -->
+                                    <div class="col-md-6 mb-4">
+                                        <label for="capacidade" class="form-label">
+                                            <i class="bi bi-people me-2" style="color: var(--frutiger-green);"></i>
+                                            Capacidade
+                                        </label>
+                                        <input type="number" class="form-control" id="capacidade" 
+                                               placeholder="Ex: 150" min="1" max="500" required>
+                                        <div class="form-text">Número total de assentos</div>
+                                    </div>
+
+                                    <!-- Tipo -->
+                                    <div class="col-md-6 mb-4">
+                                        <label for="tipo" class="form-label">
+                                            <i class="bi bi-display me-2" style="color: var(--frutiger-orange);"></i>
+                                            Tipo de Sala
+                                        </label>
+                                        <select class="form-select" id="tipo" required>
+                                            <option value="">Selecione o tipo</option>
+                                            <option value="2D">2D - Standard</option>
+                                            <option value="3D">3D - Estéreo</option>
+                                            <option value="IMAX">IMAX - Premium</option>
+                                            <option value="4DX">4DX - Experiência</option>
+                                            <option value="VIP">VIP - Luxo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Recursos Adicionais -->
+                                <div class="mb-4">
+                                    <label class="form-label">
+                                        <i class="bi bi-star me-2" style="color: var(--frutiger-lime);"></i>
+                                        Recursos da Sala
+                                    </label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="recursoSom">
+                                                <label class="form-check-label" for="recursoSom">
+                                                    Sistema de Som Dolby
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="recursoAr">
+                                                <label class="form-check-label" for="recursoAr">
+                                                    Ar Condicionado
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="recursoAcessibilidade">
+                                                <label class="form-check-label" for="recursoAcessibilidade">
+                                                    Acessibilidade
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="recursoLancheria">
+                                                <label class="form-check-label" for="recursoLancheria">
+                                                    Lancheria Próxima
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Botões -->
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                    <button type="button" class="btn btn-secondary me-md-2" onclick="limparFormulario()">
+                                        <i class="bi bi-x-circle me-2"></i>Limpar
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-check-circle me-2"></i>Salvar Sala
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista de Salas Cadastradas -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-bold">
+                            <i class="bi bi-list-ul me-2" style="color: var(--frutiger-blue);"></i>
+                            Salas Cadastradas
+                        </h3>
+                        <span class="badge bg-primary fs-6" id="totalSalas">0 salas</span>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Tipo</th>
+                                    <th>Capacidade</th>
+                                    <th>Recursos</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listaSalas">
+                                <!-- Lista preenchida via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="text-center mt-4" id="mensagemVazio" style="display: none;">
+                        <i class="bi bi-inbox display-1 text-muted"></i>
+                        <h4 class="text-muted mt-3">Nenhuma sala cadastrada</h4>
+                        <p class="text-muted">Comece cadastrando a primeira sala usando o formulário acima.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scriptcine.js"></script>
+    <script src="js/salas.js"></script>
+
+</body>
+</html>

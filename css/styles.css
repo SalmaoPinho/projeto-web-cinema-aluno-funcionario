@@ -1,0 +1,262 @@
+/* style.css */
+:root {
+    --frutiger-blue: #4FC3F7;
+    --frutiger-green: #66BB6A;
+    --frutiger-cyan: #26C6DA;
+    --frutiger-lime: #D4E157;
+    --frutiger-orange: #FFB74D;
+    --frutiger-gradient: linear-gradient(135deg, rgba(79, 195, 247, 0.85) 0%, rgba(38, 198, 218, 0.75) 50%, rgba(102, 187, 106, 0.65) 100%);
+    --frutiger-light: #E1F5FE;
+    --frutiger-card: rgba(255, 255, 255, 0.95);
+}
+
+body {
+    background: 
+        /* Gradiente sobre a imagem */
+        var(--frutiger-gradient),
+        /* Imagem de fundo Frutiger Aero */
+        url('https://frutigeraeroarchive.org/images/wallpapers/asadal_stock/asadal_stock_63.jpg') 
+        center/cover fixed no-repeat;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(79, 195, 247, 0.3);
+    backdrop-filter: blur(10px);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.table th {
+    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    color: white;
+    border: none;
+}
+
+.table td, .table th {
+    border-color: #E1F5FE;
+    padding: 12px 8px;
+}
+
+.table tbody tr:hover {
+    background-color: var(--frutiger-light);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+.dropdown-toggle {
+    min-width: 100px;
+    border: 2px solid var(--frutiger-blue);
+    background: white;
+    color: var(--frutiger-blue);
+    font-weight: 600;
+}
+
+.dropdown-toggle:hover {
+    background: var(--frutiger-blue);
+    color: white;
+}
+
+.stats-card {
+    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--frutiger-green), #4CAF50);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--frutiger-orange), #FF9800);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #FF7043, #F4511E);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-outline-secondary {
+    border: 2px solid var(--frutiger-cyan);
+    color: var(--frutiger-cyan);
+    border-radius: 25px;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--frutiger-cyan);
+    color: white;
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(79, 195, 247, 0.2);
+    background: var(--frutiger-card);
+}
+
+.card-body {
+    border-radius: 20px;
+}
+
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(79, 195, 247, 0.4);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    border-radius: 20px 20px 0 0;
+    color: white;
+}
+
+.form-control, .form-select {
+    border: 2px solid var(--frutiger-blue);
+    border-radius: 12px;
+    padding: 10px 15px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--frutiger-cyan);
+    box-shadow: 0 0 0 0.2rem rgba(79, 195, 247, 0.25);
+}
+
+.table tfoot {
+    background: linear-gradient(135deg, var(--frutiger-lime), #CDDC39);
+    color: #333;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #E1F5FE, #B3E5FC);
+    border: 2px solid var(--frutiger-blue);
+    border-radius: 15px;
+    color: #01579B;
+}
+
+h1, h5 {
+    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dropdown-menu {
+    border-radius: 15px;
+    border: 2px solid var(--frutiger-blue);
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, var(--frutiger-light), #B3E5FC);
+    border-radius: 8px;
+    margin: 2px 5px;
+}
+
+input[type="radio"] {
+    accent-color: var(--frutiger-blue);
+}
+
+/* Ícones coloridos */
+.bi-icon-blue {
+    color: var(--frutiger-blue);
+    margin-right: 8px;
+}
+
+.bi-icon-cyan {
+    color: var(--frutiger-cyan);
+    margin-right: 8px;
+}
+
+.bi-icon-green {
+    color: var(--frutiger-green);
+    margin-right: 8px;
+}
+
+.bi-icon-orange {
+    color: var(--frutiger-orange);
+    margin-right: 8px;
+}
+
+.bi-icon-white {
+    color: white;
+    margin-right: 8px;
+}
+
+.bi-icon-gray {
+    color: #6c757d;
+    margin-right: 8px;
+}
+
+.btn .bi-icon-white {
+    color: white;
+}
+
+.btn-outline-secondary .bi-icon-cyan {
+    color: var(--frutiger-cyan);
+}
+
+.btn-outline-secondary:hover .bi-icon-white {
+    color: white;
+}
+
+/* Status com cores */
+.status-aprovado {
+    color: var(--frutiger-green);
+    font-weight: 600;
+}
+
+.status-recuperacao {
+    color: var(--frutiger-orange);
+    font-weight: 600;
+}
+
+.status-reprovado {
+    color: #F4511E;
+    font-weight: 600;
+}
+
+/* Animação suave para os cartões */
+.stats-card, .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-card:hover, .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(79, 195, 247, 0.5);
+}
+
+/* Garantir que a tabela seja responsiva */
+.table-responsive {
+    border-radius: 15px;
+}
+
+/* Melhorar a visibilidade dos textos no container */
+.container h1,
+.container h5,
+.container .card-title {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}

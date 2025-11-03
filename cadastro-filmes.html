@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Filmes - CineManager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylescin.css">
+    <style>
+        .image-preview-container {
+            display: none;
+            margin-top: 15px;
+        }
+        .image-preview {
+            width: 100%;
+            max-width: 300px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px dashed #dee2e6;
+        }
+        .aspect-ratio-info {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar Corrigido -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container bg-primary">
+        <a class="navbar-brand nav-logo" href="index.html">
+            <i class="bi bi-camera-reels me-2"></i>123 Filmes
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-house me-1"></i>Início
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle bg-transparent active border-0" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-gear me-1"></i>Cadastros
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="cadastro-filmes.html">
+                            <i class="bi bi-film me-2"></i>Cadastro de Filmes
+                        </a></li>
+                        <li><a class="dropdown-item" href="cadastro-salas.html">
+                            <i class="bi bi-building me-2"></i>Cadastro de Salas
+                        </a></li>
+                        <li><a class="dropdown-item" href="cadastro-sessoes.html">
+                            <i class="bi bi-calendar-event me-2"></i>Cadastro de Sessões
+                        </a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="venda-ingressos.html">
+                        <i class="bi bi-ticket-perforated me-1"></i>Venda de Ingressos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sessoes-disponiveis.html">
+                        <i class="bi bi-list-check me-1"></i>Sessões Disponíveis
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="fw-bold display-5">
+                        <i class="bi bi-film me-3"></i>Cadastro de Filmes
+                    </h1>
+                    <p class="lead mb-0">Cadastre e gerencie o catálogo de filmes do seu cinema</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="index.html" class="btn btn-light">
+                        <i class="bi bi-arrow-left me-2"></i>Voltar ao Início
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card form-card">
+                        <div class="card-header bg-white py-4">
+                            <h3 class="card-title mb-0 text-center">
+                                <i class="bi bi-plus-circle me-2" style="color: var(--frutiger-cyan);"></i>
+                                Novo Filme
+                            </h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="formFilme">
+                                <div class="row">
+                                    <!-- Coluna da Imagem -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="sticky-top" style="top: 20px;">
+                                            <!-- Upload de Imagem -->
+                                            <div class="mb-4">
+                                                <label for="imagemFilme" class="form-label">
+                                                    <i class="bi bi-image me-2" style="color: var(--frutiger-blue);"></i>
+                                                    Poster do Filme
+                                                </label>
+                                                <input type="file" class="form-control" id="imagemFilme" 
+                                                       accept="image/*" onchange="previewImage(this)">
+                                                <div class="form-text aspect-ratio-info">
+                                                    Recomendado: 300x450px (aspect ratio 2:3)
+                                                </div>
+                                            </div>
+
+                                            <!-- Preview da Imagem -->
+                                            <div class="image-preview-container text-center" id="imagePreviewContainer">
+                                                <img id="imagePreview" class="image-preview" alt="Preview do poster">
+                                                <div class="mt-2">
+                                                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="removerImagem()">
+                                                        <i class="bi bi-trash me-1"></i>Remover
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <!-- Placeholder quando não há imagem -->
+                                            <div class="text-center text-muted" id="imagePlaceholder">
+                                                <i class="bi bi-image display-1"></i>
+                                                <p class="mt-2">Nenhuma imagem selecionada</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Coluna do Formulário -->
+                                    <div class="col-md-8">
+                                        <!-- Título -->
+                                        <div class="mb-4">
+                                            <label for="titulo" class="form-label">
+                                                <i class="bi bi-card-heading me-2" style="color: var(--frutiger-blue);"></i>
+                                                Título do Filme
+                                            </label>
+                                            <input type="text" class="form-control form-control-lg" id="titulo" 
+                                                   placeholder="Digite o título do filme" required>
+                                            <div class="form-text">Título completo do filme</div>
+                                        </div>
+
+                                        <!-- Descrição -->
+                                        <div class="mb-4">
+                                            <label for="descricao" class="form-label">
+                                                <i class="bi bi-text-paragraph me-2" style="color: var(--frutiger-green);"></i>
+                                                Descrição
+                                            </label>
+                                            <textarea class="form-control" id="descricao" rows="4" 
+                                                      placeholder="Sinopse do filme..." required></textarea>
+                                            <div class="form-text">Breve descrição ou sinopse do filme</div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- Gênero -->
+                                            <div class="col-md-6 mb-4">
+                                                <label for="genero" class="form-label">
+                                                    <i class="bi bi-tags me-2" style="color: var(--frutiger-orange);"></i>
+                                                    Gênero
+                                                </label>
+                                                <select class="form-select" id="genero" required>
+                                                    <option value="">Selecione um gênero</option>
+                                                    <option value="acao">Ação</option>
+                                                    <option value="aventura">Aventura</option>
+                                                    <option value="comedia">Comédia</option>
+                                                    <option value="drama">Drama</option>
+                                                    <option value="ficcao">Ficção Científica</option>
+                                                    <option value="terror">Terror</option>
+                                                    <option value="romance">Romance</option>
+                                                    <option value="suspense">Suspense</option>
+                                                    <option value="animacao">Animação</option>
+                                                    <option value="documentario">Documentário</option>
+                                                    <option value="fantasia">Fantasia</option>
+                                                    <option value="musical">Musical</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Classificação Indicativa -->
+                                            <div class="col-md-6 mb-4">
+                                                <label for="classificacao" class="form-label">
+                                                    <i class="bi bi-exclamation-triangle me-2" style="color: var(--frutiger-lime);"></i>
+                                                    Classificação Indicativa
+                                                </label>
+                                                <select class="form-select" id="classificacao" required>
+                                                    <option value="">Selecione a classificação</option>
+                                                    <option value="L">L - Livre</option>
+                                                    <option value="10">10 anos</option>
+                                                    <option value="12">12 anos</option>
+                                                    <option value="14">14 anos</option>
+                                                    <option value="16">16 anos</option>
+                                                    <option value="18">18 anos</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- Duração -->
+                                            <div class="col-md-6 mb-4">
+                                                <label for="duracao" class="form-label">
+                                                    <i class="bi bi-clock me-2" style="color: var(--frutiger-cyan);"></i>
+                                                    Duração (minutos)
+                                                </label>
+                                                <input type="number" class="form-control" id="duracao" 
+                                                       placeholder="120" min="1" max="300" required>
+                                                <div class="form-text">Duração em minutos</div>
+                                            </div>
+
+                                            <!-- Data de Estreia -->
+                                            <div class="col-md-6 mb-4">
+                                                <label for="dataEstreia" class="form-label">
+                                                    <i class="bi bi-calendar-date me-2" style="color: var(--frutiger-blue);"></i>
+                                                    Data de Estreia
+                                                </label>
+                                                <input type="date" class="form-control" id="dataEstreia" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Botões -->
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                            <button type="button" class="btn btn-secondary me-md-2" onclick="limparFormulario()">
+                                                <i class="bi bi-x-circle me-2"></i>Limpar
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="bi bi-check-circle me-2"></i>Salvar Filme
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista de Filmes Cadastrados -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-bold">
+                            <i class="bi bi-list-ul me-2" style="color: var(--frutiger-blue);"></i>
+                            Filmes Cadastrados
+                        </h3>
+                        <span class="badge bg-primary fs-6" id="totalFilmes">0 filmes</span>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th width="80">Poster</th>
+                                    <th>Título</th>
+                                    <th>Gênero</th>
+                                    <th>Classificação</th>
+                                    <th>Duração</th>
+                                    <th>Estreia</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listaFilmes">
+                                <!-- Lista preenchida via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="text-center mt-4" id="mensagemVazio" style="display: none;">
+                        <i class="bi bi-inbox display-1 text-muted"></i>
+                        <h4 class="text-muted mt-3">Nenhum filme cadastrado</h4>
+                        <p class="text-muted">Comece cadastrando o primeiro filme usando o formulário acima.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scriptcine.js"></script>
+    <script src="js/filmes.js"></script>
+</body>
+</html>

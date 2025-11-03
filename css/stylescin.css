@@ -1,0 +1,344 @@
+/* style.css */
+:root {
+    --frutiger-blue: #4FC3F7;
+    --frutiger-green: #66BB6A;
+    --frutiger-cyan: #26C6DA;
+    --frutiger-lime: #D4E157;
+    --frutiger-orange: #FFB74D;
+    --frutiger-gradient: linear-gradient(135deg, rgba(38, 198, 218, 0.65) 0%, rgba(0, 68, 255,0.9) 100%);
+    --frutiger-gradient2: linear-gradient(45deg, var(--frutiger-cyan) 0%, var(--frutiger-darkblue) 100%);
+    --frutiger-light: #E1F5FE;
+    --frutiger-card: rgba(255, 255, 255, 0.95);
+    --frutiger-darkblue: #2f00ff;
+}
+
+body {
+    background: 
+        /* Gradiente sobre a imagem */
+        var(--frutiger-gradient),
+        /* Imagem de fundo Frutiger Aero */
+        url('https://frutigeraeroarchive.org/images/wallpapers/materialdictionary178/materialdictionary178_109.jpg') 
+        center/cover fixed no-repeat;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(79, 195, 247, 0.3);
+    backdrop-filter: blur(10px);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.table th {
+    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    color: white;
+    border: none;
+}
+
+.table td, .table th {
+    border-color: #E1F5FE;
+    padding: 12px 8px;
+}
+
+.table tbody tr:hover {
+    background-color: var(--frutiger-light);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+.dropdown-toggle {
+    min-width: 100px;
+    border: 2px solid var(--frutiger-blue);
+    background: white;
+    color: var(--frutiger-blue);
+    font-weight: 600;
+}
+
+.dropdown-toggle:hover {
+    background: var(--frutiger-blue);
+    color: white;
+}
+
+.stats-card {
+    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--frutiger-green), #4CAF50);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, var(--frutiger-orange), #FF9800);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #FF7043, #F4511E);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.bg-primary {
+    background: var(--frutiger-gradient2);
+    border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    border-radius: 25px;
+    font-weight: 600;
+}
+.bg-info {
+    background: var(--frutiger-darkblue);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-light {
+    color: var(--frutiger-darkblue);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.btn-outline-secondary {
+    border: 2px solid var(--frutiger-cyan);
+    color: var(--frutiger-cyan);
+    border-radius: 25px;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--frutiger-cyan);
+    color: white;
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(79, 195, 247, 0.2);
+    background: var(--frutiger-card);
+}
+
+.card-body {
+    border-radius: 20px;
+}
+
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(79, 195, 247, 0.4);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--frutiger-blue), var(--frutiger-cyan));
+    border-radius: 20px 20px 0 0;
+    color: white;
+}
+
+.form-control, .form-select {
+    border: 2px solid var(--frutiger-blue);
+    border-radius: 12px;
+    padding: 10px 15px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--frutiger-cyan);
+    box-shadow: 0 0 0 0.2rem rgba(79, 195, 247, 0.25);
+}
+
+.table tfoot {
+    background: linear-gradient(135deg, var(--frutiger-lime), #CDDC39);
+    color: #333;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #E1F5FE, #B3E5FC);
+    border: 2px solid var(--frutiger-blue);
+    border-radius: 15px;
+    color: #01579B;
+}
+
+h1, h5 {
+    background: var(--frutiger-darkblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    background: var(--frutiger-darkblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.dropdown-menu {
+    border-radius: 15px;
+    border: 2px solid var(--frutiger-blue);
+    box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, var(--frutiger-light), #B3E5FC);
+    border-radius: 8px;
+    margin: 2px 5px;
+}
+
+input[type="radio"] {
+    accent-color: var(--frutiger-blue);
+}
+
+/* Ícones coloridos */
+.bi-icon-blue {
+    color: var(--frutiger-blue);
+    margin-right: 8px;
+}
+
+.bi-icon-cyan {
+    color: var(--frutiger-cyan);
+    margin-right: 8px;
+}
+
+.bi-icon-green {
+    color: var(--frutiger-green);
+    margin-right: 8px;
+}
+
+.bi-icon-orange {
+    color: var(--frutiger-orange);
+    margin-right: 8px;
+}
+
+.bi-icon-white {
+    color: white;
+    margin-right: 8px;
+}
+
+.bi-icon-gray {
+    color: #6c757d;
+    margin-right: 8px;
+}
+
+.btn .bi-icon-white {
+    color: white;
+}
+
+.btn-outline-secondary .bi-icon-cyan {
+    color: var(--frutiger-cyan);
+}
+
+.btn-outline-secondary:hover .bi-icon-white {
+    color: white;
+}
+
+/* Status com cores */
+.status-aprovado {
+    color: var(--frutiger-green);
+    font-weight: 600;
+}
+
+.status-recuperacao {
+    color: var(--frutiger-orange);
+    font-weight: 600;
+}
+
+.status-reprovado {
+    color: #F4511E;
+    font-weight: 600;
+}
+
+/* Animação suave para os cartões */
+.stats-card, .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-card:hover, .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(79, 195, 247, 0.5);
+}
+
+/* Garantir que a tabela seja responsiva */
+.table-responsive {
+    border-radius: 15px;
+}
+
+/* Melhorar a visibilidade dos textos no container */
+.container h1,
+.container h5,
+.container .card-title {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.feature-card {
+    background: var(--frutiger-gradient2);
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 15px;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.nav-logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.stats-card {
+    background: var(--frutiger-gradient2);
+    color: white;
+    border: none;
+}
+/* Movie Poster com aspect ratio 2:3 */
+.movie-poster-container {
+    position: relative;
+    width: 100%;
+    padding-top: 150%; /* 3:2 aspect ratio (300/200 = 1.5) */
+    overflow: hidden;
+    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+}
+
+.movie-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.movie-poster-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+}
+
+/* Ajustes para os badges sobre a imagem */
+.movie-poster-container .position-absolute {
+    z-index: 10;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .movie-poster-container {
+        padding-top: 140%; /* Um pouco menor em mobile */
+    }
+}

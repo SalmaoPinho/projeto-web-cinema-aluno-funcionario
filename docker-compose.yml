@@ -1,0 +1,12 @@
+services:
+  123-filmes:
+    build: .
+    ports:
+      - "7272:8080"
+    container_name: 123-filmes-site
+    restart: unless-stopped
+    volumes:
+      - ./:/usr/share/nginx/html:ro
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80

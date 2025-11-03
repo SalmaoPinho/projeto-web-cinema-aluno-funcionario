@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão de Funcionários</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/stylesfun.css">
+</head>
+<body class="bg-light">
+    <div class="container py-4">
+        
+        <!-- Cabeçalho -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1 class="h3 mb-0">
+                        <i class="bi bi-building-fill bi-icon-blue"></i>Sistema de Funcionários
+                    </h1>
+                    <div class="btn-group">
+                        <button class="btn btn-primary" onclick="abrirModalCriar()">
+                            <i class="bi bi-plus-circle-fill bi-icon-white"></i>Novo Funcionário
+                        </button>
+                        <button class="btn btn-dark" onclick="abrirModalEditar()">
+                            <i class="bi bi-pencil-fill bi-icon-white"></i>Editar
+                        </button>
+                        <button class="btn btn-danger" onclick="excluirSelecionado()">
+                            <i class="bi bi-trash-fill bi-icon-white"></i>Excluir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de Pesquisa -->
+        <div class="card mb-4">
+            <div class="card-body py-3">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-list-ul bi-icon-blue"></i>Lista de Funcionários
+                        </h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Pesquisar por nome, cargo ou departamento..." 
+                                   id="campoPesquisa" onkeyup="filtrarPesquisa()">
+                            <button class="btn btn-outline-secondary" type="button" onclick="limparPesquisa()">
+                                <i class="bi bi-x-circle-fill bi-icon-cyan"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela -->
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th width="5%">#</th>
+                                
+                                <!-- Filtro Nome -->
+                                <th width="25%">
+                                    <div class="dropdown" id="nomeFilter">
+                                        <button class="btn btn-sm dropdown-toggle fw-bold w-100 text-start" 
+                                                type="button" data-bs-toggle="dropdown">
+                                            <i class="bi bi-person-fill bi-icon-blue"></i>Nome
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorNome('az')">
+                                                <i class="bi bi-sort-alpha-down bi-icon-blue"></i>A-Z
+                                            </a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorNome('za')">
+                                                <i class="bi bi-sort-alpha-down-alt bi-icon-cyan"></i>Z-A
+                                            </a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#" onclick="limparFiltro('nome')">
+                                                <i class="bi bi-arrow-clockwise bi-icon-gray"></i>Limpar
+                                            </a></li>
+                                        </ul>
+                                    </div>
+                                </th>
+
+                                <!-- Filtro Idade -->
+                                <th width="15%">
+                                    <div class="dropdown" id="idadeFilter">
+                                        <button class="btn btn-sm dropdown-toggle fw-bold w-100 text-start" 
+                                                type="button" data-bs-toggle="dropdown">
+                                            <i class="bi bi-calendar3 bi-icon-blue"></i>Idade
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorIdade('menor25')">
+                                                <i class="bi bi-arrow-down-right-circle bi-icon-cyan"></i>Menor de 25
+                                            </a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorIdade('25a40')">
+                                                <i class="bi bi-dash-circle bi-icon-blue"></i>25 até 40
+                                            </a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorIdade('maior40')">
+                                                <i class="bi bi-arrow-up-right-circle bi-icon-cyan"></i>Acima de 40
+                                            </a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#" onclick="limparFiltro('idade')">
+                                                <i class="bi bi-arrow-clockwise bi-icon-gray"></i>Limpar
+                                            </a></li>
+                                        </ul>
+                                    </div>
+                                </th>
+
+                                <!-- Filtro Cargo -->
+                                <th width="25%">
+                                    <div class="dropdown" id="cargoFilter">
+                                        <button class="btn btn-sm dropdown-toggle fw-bold w-100 text-start" 
+                                                type="button" data-bs-toggle="dropdown">
+                                            <i class="bi bi-briefcase bi-icon-blue"></i>Cargo
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorCargo('dev')">
+                                                <i class="bi bi-code-slash bi-icon-cyan"></i>Desenvolvedor
+                                            </a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorCargo('design')">
+                                                <i class="bi bi-palette bi-icon-blue"></i>Designer
+                                            </a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorCargo('gerente')">
+                                                <i class="bi bi-person-badge bi-icon-cyan"></i>Gerente
+                                            </a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorCargo('analista')">
+                                                <i class="bi bi-graph-up bi-icon-blue"></i>Analista
+                                            </a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#" onclick="limparFiltro('cargo')">
+                                                <i class="bi bi-arrow-clockwise bi-icon-gray"></i>Limpar
+                                            </a></li>
+                                        </ul>
+                                    </div>
+                                </th>
+
+                                <!-- Filtro Salário -->
+                                <th width="20%">
+                                    <div class="dropdown" id="salarioFilter">
+                                        <button class="btn btn-sm dropdown-toggle fw-bold w-100 text-start" 
+                                                type="button" data-bs-toggle="dropdown">
+                                            <i class="bi bi-currency-dollar bi-icon-blue"></i>Salário
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorSalario('baixo')">
+                                                <i class="bi bi-arrow-down-circle bi-icon-green"></i>Até R$ 3.000
+                                            </a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorSalario('medio')">
+                                                <i class="bi bi-dash-circle bi-icon-orange"></i>R$ 3.001 - 7.000
+                                            </a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="filtrarPorSalario('alto')">
+                                                <i class="bi bi-arrow-up-circle" style="color: #F4511E;"></i>Acima de R$ 7.000
+                                            </a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#" onclick="limparFiltro('salario')">
+                                                <i class="bi bi-arrow-clockwise bi-icon-gray"></i>Limpar
+                                            </a></li>
+                                        </ul>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider" id="tabelaFuncionarios">
+                            <!-- Dados carregados via JavaScript -->
+                        </tbody>
+                        <tfoot class="fw-bold">
+                            <tr>
+                                <th><i class="bi bi-graph-up-arrow bi-icon-blue"></i></th>
+                                <td>Resumo Geral</td>
+                                <td>
+                                    Média: <span id="idadeMedia">0</span><br>
+                                    <small>Min: <span id="idadeMin">0</span> | Max: <span id="idadeMax">0</span></small>
+                                </td>
+                                <td>
+                                    Total: <span id="totalFuncionarios">0</span><br>
+                                    <small>Cargos: <span id="totalCargos">0</span></small>
+                                </td>
+                                <td>
+                                    Média: R$ <span id="salarioMedia">0</span><br>
+                                    <small>Min: R$ <span id="salarioMin">0</span> | Max: R$ <span id="salarioMax">0</span></small>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal para Criar/Editar Funcionário -->
+<div class="modal fade" id="formModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi" id="modalIcon"></i>
+                    <span id="modalTitulo">Criar Funcionário</span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p id="modalTexto" class="text-muted mb-3">Preencha os dados para criar um novo funcionário</p>
+                
+                <input type="hidden" id="funcionarioId">
+                <input type="hidden" id="modoEdicao" value="criar">
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="nomeInput" class="form-label">
+                                <i class="bi bi-person-fill bi-icon-blue"></i>Nome Completo
+                            </label>
+                            <input type="text" class="form-control" id="nomeInput" placeholder="Digite o nome do funcionário">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="idadeInput" class="form-label">
+                                <i class="bi bi-calendar3 bi-icon-blue"></i>Idade
+                            </label>
+                            <input type="number" class="form-control" id="idadeInput" placeholder="Idade do funcionário" min="18" max="70">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="cargoSelect" class="form-label">
+                                <i class="bi bi-briefcase bi-icon-blue"></i>Cargo
+                            </label>
+                            <select class="form-select" id="cargoSelect">
+                                <option value="">Selecione um cargo</option>
+                                <option value="dev">Desenvolvedor</option>
+                                <option value="design">Designer</option>
+                                <option value="gerente">Gerente</option>
+                                <option value="analista">Analista</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="salarioInput" class="form-label">
+                                <i class="bi bi-currency-dollar bi-icon-blue"></i>Salário (R$)
+                            </label>
+                            <input type="number" class="form-control" id="salarioInput" placeholder="Salário do funcionário" min="0" step="0.01">
+                            <div class="form-text">Salário em reais</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview do Funcionário -->
+                <div class="alert alert-info mt-3" id="previewStatus">
+                    <strong>
+                        <i class="bi bi-eye-fill bi-icon-blue"></i>Pré-visualização:
+                    </strong> 
+                    <span id="previewText">Preencha os campos para ver os dados do funcionário</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle-fill bi-icon-gray"></i>Cancelar
+                </button>
+                <button type="button" class="btn btn-primary" onclick="salvarFuncionario()">
+                    <i class="bi bi-check-circle-fill bi-icon-white"></i>Salvar Funcionário
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div class="modal fade" id="confirmarExclusao" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-trash-fill bi-icon-white"></i>Confirmar Exclusão
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <i class="bi bi-exclamation-triangle-fill bi-icon-white"></i>
+                        <strong>Tem certeza que deseja excluir este funcionário?</strong>
+                    </p>
+                    <p class="text-muted">Esta ação não pode ser desfeita.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-arrow-left-circle-fill bi-icon-gray"></i>Cancelar
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="confirmarExclusao()">
+                        <i class="bi bi-trash-fill bi-icon-white"></i>Confirmar Exclusão
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/scriptfun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
