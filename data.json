@@ -1,0 +1,353 @@
+{
+    "filmes": [
+        {
+            "id": "filme-1",
+            "titulo": "O Poderoso Chefão",
+            "descricao": "Drama familiar sobre o crime organizado.",
+            "genero": "drama",
+            "classificacao": "14",
+            "duracao": 175,
+            "dataEstreia": "2024-01-15",
+            "imagem": "https://www.quadrorama.com.br/wp-content/uploads/2017/07/36-3.png"
+        },
+        {
+            "id": "filme-2",
+            "titulo": "Matrix",
+            "descricao": "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos em que está sempre conectado por cabos a um imenso sistema de computadores do futuro.",
+            "genero": "ficcao",
+            "classificacao": "14",
+            "duracao": 136,
+            "dataEstreia": "2024-01-10",
+            "imagem": "https://uauposters.com.br/media/catalog/product/3/4/347120140406-uau-posters-filmes-matrix.jpg"
+        },
+        {
+            "id": "filme-3",
+            "titulo": "Vingadores: Ultimato",
+            "descricao": "Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o titã louco.",
+            "genero": "acao",
+            "classificacao": "12",
+            "duracao": 181,
+            "dataEstreia": "2024-01-20",
+            "imagem": "https://img.elo7.com.br/product/zoom/266036C/big-poster-filme-vingadores-ultimato-lo47-tamanho-90x60-cm-vingadores.jpg"
+        },
+        {
+            "id": "filme-4",
+            "titulo": "Superman",
+            "descricao": "Superman embarca em uma jornada para reconciliar sua herança kryptoniana com sua criação humana.",
+            "genero": "acao",
+            "classificacao": "14",
+            "duracao": 100,
+            "dataEstreia": "2025-07-10",
+            "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS5kpHGfBNwXEl1mnr2LkSRjRIe1oqKe5VxbbVk42niymTQVzYR"
+        },
+        {
+            "id": "filme-5",
+            "titulo": "Interestelar",
+            "descricao": "Uma equipe de exploradores viaja por um buraco de minhoca no espaço.",
+            "genero": "ficcao",
+            "classificacao": "10",
+            "duracao": 169,
+            "dataEstreia": "2024-02-15",
+            "imagem": "https://br.web.img3.acsta.net/pictures/14/10/31/20/39/476171.jpg"
+        },
+        {
+            "id": "filme-6",
+            "titulo": "O Rei Leão",
+            "descricao": "O ciclo da vida na savana africana.",
+            "genero": "animacao",
+            "classificacao": "L",
+            "duracao": 118,
+            "dataEstreia": "2024-01-25",
+            "imagem": "https://images.justwatch.com/poster/115572244/s718/o-rei-leao.jpg"
+        },
+        {
+            "id": "filme-7",
+            "titulo": "The Batman",
+            "descricao": "Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.",
+            "genero": "drama",
+            "classificacao": "16",
+            "duracao": 122,
+            "dataEstreia": "2022-02-10",
+            "imagem": "https://upload.wikimedia.org/wikipedia/pt/3/38/The_Batman_poster.jpg"
+        },
+        {
+            "id": "filme-8",
+            "titulo": "Parasita",
+            "descricao": "Duas famílias de classes sociais diferentes se entrelaçam.",
+            "genero": "drama",
+            "classificacao": "14",
+            "duracao": 132,
+            "dataEstreia": "2024-02-20",
+            "imagem": "https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png"
+        },
+        {
+            "id": "filme-9",
+            "titulo": "Avatar: O Caminho da Água",
+            "descricao": "A continuação da aventura em Pandora.",
+            "genero": "ficcao",
+            "classificacao": "12",
+            "duracao": 192,
+            "dataEstreia": "2024-03-01",
+            "imagem": "https://upload.wikimedia.org/wikipedia/en/5/54/Avatar_The_Way_of_Water_poster.jpg"
+        },
+        {
+            "id": "filme-10",
+            "titulo": "Top Gun: Maverick",
+            "descricao": "Depois de mais de 30 anos de serviço como um dos principais aviadores da Marinha, Pete \"Maverick\" Mitchell está de volta, rompendo os limites como um piloto de testes corajoso. No mundo contemporâneo das guerras tecnológicas, Maverick enfrenta drones e prova que o fator humano ainda é essencial.",
+            "genero": "acao",
+            "classificacao": "12",
+            "duracao": 130,
+            "dataEstreia": "2024-02-05",
+            "imagem": "https://translate.google.com/website?sl=en&tl=pt&hl=pt&client=srp&u=https://upload.wikimedia.org/wikipedia/en/1/13/Top_Gun_Maverick_Poster.jpg"
+        }
+    ],
+    "salas": [
+        {
+            "id": "sala-1",
+            "nome": "Sala IMAX",
+            "capacidade": 200,
+            "tipo": "IMAX",
+            "recursos": [
+                "Dolby Sound",
+                "Ar Condicionado",
+                "Tela Gigante"
+            ]
+        },
+        {
+            "id": "sala-2",
+            "nome": "Sala 3D",
+            "capacidade": 150,
+            "tipo": "3D",
+            "recursos": [
+                "Ar Condicionado",
+                "Óculos 3D Inclusos"
+            ]
+        },
+        {
+            "id": "sala-3",
+            "nome": "Sala Standard",
+            "capacidade": 120,
+            "tipo": "2D",
+            "recursos": [
+                "Ar Condicionado"
+            ]
+        },
+        {
+            "id": "sala-4",
+            "nome": "Sala 4DX",
+            "capacidade": 80,
+            "tipo": "4DX",
+            "recursos": [
+                "Efeitos Especiais",
+                "Movimento",
+                "Ar Condicionado",
+                "Aromas"
+            ]
+        },
+        {
+            "id": "sala-5",
+            "nome": "Sala VIP",
+            "capacidade": 60,
+            "tipo": "VIP",
+            "recursos": [
+                "Poltronas Reclináveis",
+                "Serviço de Bebidas",
+                "Atendimento Personalizado"
+            ]
+        },
+        {
+            "id": "sala-6",
+            "nome": "Sala Premium",
+            "capacidade": 100,
+            "tipo": "2D",
+            "recursos": [
+                "Som Surround",
+                "Poltronas Confortáveis",
+                "Ar Condicionado"
+            ]
+        },
+        {
+            "id": "sala-7",
+            "nome": "Sala 3D Premium",
+            "capacidade": 130,
+            "tipo": "3D",
+            "recursos": [
+                "Dolby Atmos",
+                "Óculos 3D Reutilizáveis",
+                "Ar Condicionado"
+            ]
+        }
+    ],
+    "sessoes": [
+        {
+            "id": "sessao-1",
+            "filmeId": "filme-1",
+            "salaId": "sala-1",
+            "dataHora": "2025-12-05T14:00:00.000Z",
+            "preco": 25.00,
+            "idioma": "dublado",
+            "formato": "2D",
+            "assentosDisponiveis": 200
+        },
+        {
+            "id": "sessao-2",
+            "filmeId": "filme-2",
+            "salaId": "sala-2",
+            "dataHora": "2025-12-05T16:30:00.000Z",
+            "preco": 35.00,
+            "idioma": "legendado",
+            "formato": "3D",
+            "assentosDisponiveis": 150
+        },
+        {
+            "id": "sessao-3",
+            "filmeId": "filme-3",
+            "salaId": "sala-3",
+            "dataHora": "2025-12-05T19:00:00.000Z",
+            "preco": 30.00,
+            "idioma": "dublado",
+            "formato": "2D",
+            "assentosDisponiveis": 120
+        },
+        {
+            "id": "sessao-4",
+            "filmeId": "filme-4",
+            "salaId": "sala-4",
+            "dataHora": "2025-12-05T20:30:00.000Z",
+            "preco": 45.00,
+            "idioma": "dublado",
+            "formato": "4DX",
+            "assentosDisponiveis": 80
+        },
+        {
+            "id": "sessao-5",
+            "filmeId": "filme-5",
+            "salaId": "sala-5",
+            "dataHora": "2025-12-06T15:00:00.000Z",
+            "preco": 50.00,
+            "idioma": "legendado",
+            "formato": "VIP",
+            "assentosDisponiveis": 60
+        },
+        {
+            "id": "sessao-6",
+            "filmeId": "filme-6",
+            "salaId": "sala-6",
+            "dataHora": "2025-12-06T17:00:00.000Z",
+            "preco": 28.00,
+            "idioma": "dublado",
+            "formato": "2D",
+            "assentosDisponiveis": 100
+        },
+        {
+            "id": "sessao-7",
+            "filmeId": "filme-7",
+            "salaId": "sala-7",
+            "dataHora": "2025-12-06T21:00:00.000Z",
+            "preco": 32.00,
+            "idioma": "legendado",
+            "formato": "3D",
+            "assentosDisponiveis": 130
+        },
+        {
+            "id": "sessao-8",
+            "filmeId": "filme-8",
+            "salaId": "sala-1",
+            "dataHora": "2025-12-09T13:00:00.000Z",
+            "preco": 26.00,
+            "idioma": "legendado",
+            "formato": "2D",
+            "assentosDisponiveis": 200
+        },
+        {
+            "id": "sessao-9",
+            "filmeId": "filme-9",
+            "salaId": "sala-2",
+            "dataHora": "2025-12-09T16:00:00.000Z",
+            "preco": 38.00,
+            "idioma": "dublado",
+            "formato": "3D",
+            "assentosDisponiveis": 150
+        },
+        {
+            "id": "sessao-10",
+            "filmeId": "filme-10",
+            "salaId": "sala-3",
+            "dataHora": "2025-12-09T19:30:00.000Z",
+            "preco": 29.00,
+            "idioma": "dublado",
+            "formato": "2D",
+            "assentosDisponiveis": 120
+        },
+        {
+            "id": "sessao-11",
+            "filmeId": "filme-1",
+            "salaId": "sala-4",
+            "dataHora": "2025-12-11T20:00:00.000Z",
+            "preco": 45.00,
+            "idioma": "dublado",
+            "formato": "4DX",
+            "assentosDisponiveis": 80
+        },
+        {
+            "id": "sessao-12",
+            "filmeId": "filme-2",
+            "salaId": "sala-5",
+            "dataHora": "2025-12-11T18:00:00.000Z",
+            "preco": 55.00,
+            "idioma": "legendado",
+            "formato": "VIP",
+            "assentosDisponiveis": 60
+        },
+        {
+            "id": "sessao-13",
+            "filmeId": "filme-9",
+            "salaId": "sala-1",
+            "dataHora": "2025-12-18T15:30:00.000Z",
+            "preco": 40.00,
+            "idioma": "dublado",
+            "formato": "IMAX",
+            "assentosDisponiveis": 200
+        },
+        {
+            "id": "sessao-14",
+            "filmeId": "filme-10",
+            "salaId": "sala-2",
+            "dataHora": "2025-12-18T21:00:00.000Z",
+            "preco": 42.00,
+            "idioma": "legendado",
+            "formato": "3D",
+            "assentosDisponiveis": 150
+        }
+    ],
+    "lanches": [
+        {
+            "id": "lanche-1",
+            "nome": "Pipoca Grande",
+            "descricao": "Pipoca salgada em tamanho grande.",
+            "preco": 15.00,
+            "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/fl_preserve_transparency/v1764893225/imagem_2025-12-04_210701482_svgqi1.jpg?_s=public-apps"
+        },
+        {
+            "id": "lanche-2",
+            "nome": "Refrigerante Médio",
+            "descricao": "Refrigerante gelado em tamanho médio.",
+            "preco": 10.00,
+            "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/fl_preserve_transparency/v1764893216/imagem_2025-12-04_210652246_f8lema.jpg?_s=public-apps"
+        },
+        {
+            "id": "lanche-3",
+            "nome": "Combo Pipoca e Refrigerante",
+            "descricao": "Combo com pipoca média e refrigerante médio.",
+            "preco": 20.00,
+            "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/fl_preserve_transparency/v1764893134/imagem_2025-12-04_210528124_ctswib.jpg?_s=public-apps"
+        },
+        {
+            "id": "lanche-4",
+            "nome": "Salgadinho \"SNACKS\"",
+            "descricao": "Porção de salgadinhos.",
+            "preco": 18.00,
+            "imagem": "https://res.cloudinary.com/dhfao8eup/image/upload/fl_preserve_transparency/v1764893267/imagem_2025-12-04_210743746_gdz1rt.jpg?_s=public-apps"
+        }
+    ]
+}
